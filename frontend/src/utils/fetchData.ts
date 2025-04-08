@@ -20,6 +20,7 @@ export const fetchData = async <TFetchedData>(
   path: string,
   options: RequestInit = { method: 'GET' },
   appendSlash = true,
+  contentType = 'application/json'
 ): Promise<FetchResponse<TFetchedData>> => {
   try {
     const { method, ...restOptions } = options;
@@ -30,7 +31,7 @@ export const fetchData = async <TFetchedData>(
         ...restOptions,
         headers: {
           ...restOptions.headers,
-          'Content-Type': 'application/json',
+          'Content-Type': contentType,
         },
         cache: 'no-store',
       },

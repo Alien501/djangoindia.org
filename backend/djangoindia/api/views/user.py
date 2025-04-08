@@ -9,7 +9,7 @@ from djangoindia.db.models import User
 from .base import BaseAPIView, BaseViewSet
 
 
-class UserEndpoint(BaseViewSet):
+class   UserEndpoint(BaseViewSet):
     serializer_class = UserSerializer
     model = User
     permission_classes = [IsAuthenticated]
@@ -41,6 +41,7 @@ class UserEndpoint(BaseViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
         except Exception as e:
+            print("hi", e)
             return Response(
                 {
                     "message": "Something went wrong",
